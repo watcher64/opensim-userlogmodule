@@ -41,7 +41,7 @@ $onlinecount = mysql_query("SELECT * FROM Presence");
 $finalcount = mysql_num_rows($onlinecount);
 
 
-echo "<h1><strong><u>HG Traveler Last $last Region Visits</u></strong></h1>";
+echo "<h1><strong><u>Last $last Region Visits</u></strong></h1>";
 
 echo "Users online now: $finalcount<br>";
 echo "latest visits first.\n";
