@@ -1,28 +1,52 @@
 <body bgcolor="#000000" text="#990000">
-<h1><strong><u>Last 25 Regions Visited</u></strong>
-</h1>latest visits first.
-
 <?php
 //Developer: Watcher64 (watchersphone [at] gmail.com)
 //Function : MODDED PHP Port for OpenSim-userlogmodule
 //Source Tree : https://github.com/watcher64/MODDED_php_for_opensim-userlogmodule
 //Modified by Watcher64
 //Returns regions visists in a table one collum wide
+//Now will pass two get variables
+//last and ignore
+//last will determine how many visits to return.
+//ignore will ignore a certain user
+//Example: http://<your web server>/visits.php?last=30&ignore=Ignore%20User
+//Also added current online users, this only works if you are using the same DB
+//for the visits as for your grid, and your presence table is named "Presence"
+
 
 
 //connect to the server
 
 include("include/userlogdb.php");
 
+
+$last = $_GET["last"];
+
+if ($last == 0){ $last=50; }
+$ignore = $_GET["ignore"];
+if ($ignore == ""){ $ignore=""; }
 mysql_connect ($DB_HOST, $DB_USER, $DB_PASSWORD);
 mysql_select_db ($DB_NAME);
 //query the database
-$query = "SELECT * FROM userlog_agent ORDER BY count DESC LIMIT 25";
+$q1 = 'SELECT * FROM userlog_agent WHERE agent_name !="' . $ignore .'"';
+$q2 = ' ORDER BY count DESC LIMIT '  . $last ;
+$query = $q1 . $q2;
+
+//$query = 'SELECT * FROM userlog_agent WHERE agent_name !=' . $ignore'" ORDER BY count DESC LIMIT ' . $last ;
 
 //fetch the results / convert results into an array
 
+$onlinecount = mysql_query("SELECT * FROM Presence");
 
-        
+$finalcount = mysql_num_rows($onlinecount);
+
+
+echo "<h1><strong><u>HG Traveler Last $last Region Visits</u></strong></h1>";
+
+echo "Users online now: $finalcount<br>";
+echo "latest visits first.\n";
+
+ //echo "<br>$query<br>";   
         
         // execute query 
 $result = mysql_query($query) or die ("Error in query: $query. ".mysql_error()); 
@@ -34,7 +58,7 @@ if (mysql_num_rows($result) > 0) {
 define('COLS', 2); // number of columns
 $col = 0; // number of the last column filled
 
-echo '<table border="1px" width="500px">';
+echo '<table border="5px" CELLPADDING="6" BORDERCOLOR="383838" width="500px ">';
 echo '<tr>'; // start first row
 
 while ($rows = mysql_fetch_array($result))
