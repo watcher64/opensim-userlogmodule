@@ -39,9 +39,13 @@ $query = $q1 . $q2;
 $onlinecount = mysql_query("SELECT * FROM Presence");
 
 $finalcount = mysql_num_rows($onlinecount);
+$onlineusers ="Users Online Now: " . $finalcount . "<br>";
+if ($finalcount == 0){ $onlineusers=""; }
 
+echo "<h1><strong><u>Last $last Regions Visited</u></strong></h1>";
 
-echo "<h1><strong><u>Last $last Region Visits</u></strong></h1>";
+echo "$onlineusers";
+echo "latest visits first.\n";
 
 echo "Users online now: $finalcount<br>";
 echo "latest visits first.\n";
