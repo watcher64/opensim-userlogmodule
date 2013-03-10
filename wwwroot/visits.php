@@ -5,7 +5,8 @@
 <?php
 //Developer: Watcher64 (watchersphone [at] gmail.com)
 //Function : MODDED PHP Port for OpenSim-userlogmodule
-//Source Tree : https://github.com/watcher64/MODDED_php_for_opensim-userlogmodule
+//Source Tree : https://github.com/watcher64/opensim-userlogmodule
+//Original Source Tree : https://github.com/PixelTomsen/opensim-userlogmodule
 //Modified by Watcher64
 //Returns regions visists in a table one collum wide
 

@@ -1,7 +1,9 @@
 <?PHP
 //Original Developer: Pixel Tomsen (chk) (pixel.tomsen [at] gridnet.info)
-//Function : PHP Port for OpenSim-userlogmodule
-//Source Tree : https://github.com/PixelTomsen/opensim-userlogmodule
+//Developer: Watcher64 (watchersphone [at] gmail.com)
+//Function : MODDED PHP Port for OpenSim-userlogmodule
+//Source Tree : https://github.com/watcher64/opensim-userlogmodule
+//Original Source Tree : https://github.com/PixelTomsen/opensim-userlogmodule
 //Modified by Watcher64
 //modded to include region_name in agent table, indexed by count
 //with human readable date in date field
