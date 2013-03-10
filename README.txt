@@ -1,4 +1,19 @@
-;Developer: Pixel Tomsen (Christian Kurzhals / www.ckinfo.de) (pixel.tomsen [at] gridnet.info)
+
+
+//Developer: Watcher64 (watchersphone [at] gmail.com)
+//Original Developer: Pixel Tomsen (Christian Kurzhals / www.ckinfo.de) (pixel.tomsen [at] gridnet.info)
+//Function : MODDED PHP Port for OpenSim-userlogmodule
+//Source Tree : https://github.com/watcher64/opensim-userlogmodule
+//Modified by Watcher64
+//modded to include region_name in agent table, indexed by count
+//with human readable date in date field
+
+Everything is pretty much the same as the orginal readme, I have modded the tables to include more info
+also added a visits.php which will show you your last 25 regions visited by DESC order.
+
+Original Readme below 
+
+;Original Developer: Pixel Tomsen (Christian Kurzhals / www.ckinfo.de) (pixel.tomsen [at] gridnet.info)
 ;
 ;Function : Agent Log-Module for Different Database-Storages [OpenSim-RegionServer-AddOn]
 ;
