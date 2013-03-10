@@ -76,7 +76,7 @@ echo "<h1><strong><u>Last $last Region Visits</u></strong></h1>";
   <p>
     Search for User:
       <input type="text" name="search">
-<input name="submit" type="submit">
+      <button name="submit" type="submit">Search</button>
 </p>
 </form>
 <?php
