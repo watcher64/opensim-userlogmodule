@@ -1,8 +1,10 @@
 <?PHP
-//Developer: Pixel Tomsen (chk) (pixel.tomsen [at] gridnet.info)
+//Original Developer: Pixel Tomsen (chk) (pixel.tomsen [at] gridnet.info)
 //Function : PHP Port for OpenSim-userlogmodule
 //Source Tree : https://github.com/PixelTomsen/opensim-userlogmodule
-
+//Modified by Watcher64
+//modded to include region_name in agent table, indexed by count
+//with human readable date in date field
 include("include/userlogdb.php");
 
 mysql_connect ($DB_HOST, $DB_USER, $DB_PASSWORD);
@@ -32,7 +34,7 @@ function processAgentUpdate($hash)
 	$agent_countryname = mysql_escape_string($hash['agent_country_name']);
 	$agent_viewer = mysql_escape_string($hash['agent_viewer']);
 
-	_processAgentTableUpdate($region_id, $agent_id, $agent_name, $agent_pos, $agent_ip, $agent_country, $agent_viewer);
+	_processAgentTableUpdate($region_id, $region_name, $agent_id, $agent_name, $agent_pos, $agent_ip, $agent_country, $agent_viewer);
 
 	_processRegionTableUpdate($region_id, $region_name);
 
@@ -47,11 +49,13 @@ function processAgentUpdate($hash)
 	 print $response_xml;
 }
 
-function _processAgentTableUpdate($regionid, $agentid, $agentname, $agentpos, $agentip, $agentcountry, $agentviewer)
+function _processAgentTableUpdate($regionid, $region_name, $agentid, $agentname, $agentpos, $agentip, $agentcountry, $agentviewer)
 {
-	$stamp = time();
+	$prestamp = date('m/d/Y h:i:s a', time());
+	$stamp = $prestamp;
 
-	$sql = "REPLACE INTO " .TB_USERLOG_AGENTS. "(region_id, agent_id, agent_name, agent_pos, agent_ip, agent_country, agent_viewer, agent_time) VALUES ('$regionid','$agentid','$agentname','$agentpos','$agentip','$agentcountry','$agentviewer','$stamp')";
+$sql = "INSERT INTO " .TB_USERLOG_AGENTS. "(region_id, region_name, agent_id, agent_name, agent_pos, agent_ip, agent_country, agent_viewer, agent_time) VALUES ('$regionid','$region_name','$agentid','$agentname','$agentpos','$agentip','$agentcountry','$agentviewer','$stamp')";
+
 
 	$result = mysql_query($sql);
 
