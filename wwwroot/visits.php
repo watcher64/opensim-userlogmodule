@@ -65,7 +65,7 @@ echo "<h1><strong><u>Last $last Region Visits</u></strong></h1>";
       <option Value = "20">20</option>
       <option Value = "30">30</option>
       <option Value = "40">40</option>
-      <option Value = "50">50</option>
+			<option selected Value = "50">50</option>
       <option Value = "60">60</option>
       <option Value = "70">70</option> 
       <option Value = "80">80</option>
