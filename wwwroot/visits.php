@@ -26,6 +26,8 @@ $result = mysql_query($query) or die ("Error in query: $query. ".mysql_error());
 if (mysql_num_rows($result) > 0) { 
     // yes 
     // print them one after another 
+    // change this to one number more
+    // than the number of colums you want.
 define('COLS', 2); // number of columns
 $col = 0; // number of the last column filled
 
