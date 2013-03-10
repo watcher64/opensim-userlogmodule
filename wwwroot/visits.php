@@ -5,8 +5,7 @@
 <?php
 //Developer: Watcher64 (watchersphone [at] gmail.com)
 //Function : MODDED PHP Port for OpenSim-userlogmodule
-//Source Tree : https://github.com/watcher64/opensim-userlogmodule
-//Original Source Tree : https://github.com/PixelTomsen/opensim-userlogmodule
+//Source Tree : https://github.com/watcher64/MODDED_php_for_opensim-userlogmodule
 //Modified by Watcher64
 //Returns regions visists in a table one collum wide
 
@@ -18,7 +17,12 @@ include("include/userlogdb.php");
 mysql_connect ($DB_HOST, $DB_USER, $DB_PASSWORD);
 mysql_select_db ($DB_NAME);
 //query the database
-$query = "SELECT * FROM TB_USERLOG_AGENTS ORDER BY count DESC LIMIT 25";
+$query = "SELECT * FROM userlog_agent ORDER BY count DESC LIMIT 25";
+
+//fetch the results / convert results into an array
+
+
+        
         
         // execute query 
 $result = mysql_query($query) or die ("Error in query: $query. ".mysql_error()); 
@@ -27,8 +31,6 @@ $result = mysql_query($query) or die ("Error in query: $query. ".mysql_error());
 if (mysql_num_rows($result) > 0) { 
     // yes 
     // print them one after another 
-    // change this to one number more
-    // than the number of colums you want.
 define('COLS', 2); // number of columns
 $col = 0; // number of the last column filled
 
