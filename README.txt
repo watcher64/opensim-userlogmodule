@@ -7,6 +7,8 @@
 //Modified by Watcher64
 //modded to include region_name in agent table, indexed by count
 //with human readable date in date field
+// this also now does an INSERT instead of REPLACE on agent_table
+// watch this for getting the table too big, but allows for more history
 
 Everything is pretty much the same as the orginal readme, I have modded the tables to include more info
 also added a visits.php which will show you your last 25 regions visited by DESC order.
